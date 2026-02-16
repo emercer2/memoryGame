@@ -1,0 +1,72 @@
+.toggle-container {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  display: flex;
+  align-items: center;
+
+  /* //small screen */
+  @media (max-width: 420px) {
+      margin: auto;
+      left: 0;
+      right: 0;
+      width: fit-content;
+  }
+}
+
+/* visually hide the native checkbox but keep it accessible */
+.toggle {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* label text on the left; pill will be pushed to the right via margin-left:auto */
+.toggle + label {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--primary-text-color);
+  width: 100%;
+}
+
+/* pill on the right */
+.toggle + label .pill {
+  margin-left: auto;            /* pushes it to the far right */
+  width: 36px;                 /* pill width */
+  height: 20px;                /* pill height */
+  border-radius: 999px;
+  background-color: var(--toggle-bg);
+  position: relative;
+  flex: 0 0 36px;
+  display: inline-block;
+  transition: background-color 200ms ease;
+}
+
+/* knob inside the pill */
+.toggle + label .pill::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 4px;                   /* knob start (left side) */
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--toggle-fg);
+  transition: left 200ms ease, background-color 200ms ease;
+}
+
+/* move knob to the right when checked */
+.toggle:checked + label .pill::after {
+  left: calc(100% - 4px - 16px); /* pill width - padding - knob width */
+}
+
+/* optional checked pill color */
+.toggle:checked + label .pill {
+  background-color: var(--toggle-bg);
+}

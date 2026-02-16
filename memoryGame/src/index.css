@@ -1,0 +1,42 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  
+  --primary-bg-color: #d1deff;
+  --primary-fg-color: #a9c1ff;
+  --primary-text-color: #341827;
+  --secondary-text-color: #ffffff;
+  --primary-btn-color: #ff8bb9;
+  --text-bubble-color: #ffc6dd;
+  --toggle-bg: #ff8ed5;
+  --toggle-fg: #ff67a1;
+  --primary-card-back-color: #ffc6dd;
+  --secondary-card-back-color: #ff88b8;
+  
+  --card-size: clamp(4rem, 18vw, 8rem);
+  --card-padding: 4px;
+}
+
+[data-theme="ac"] {
+  --primary-bg-color: #deffde;
+  --primary-fg-color: #ffecc1;
+  --primary-text-color: #342818;
+  --secondary-text-color: #ffffff;
+  --primary-btn-color: #ffbf8b;
+  --text-bubble-color: #ffdabb;
+  --toggle-bg: #ffb68e;
+  --toggle-fg: #ffae67;
+  --primary-card-back-color: #ffdabb;
+  --secondary-card-back-color: #ffbc85;
+}

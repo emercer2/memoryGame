@@ -1,0 +1,141 @@
+
+/* CSS for GameBoard component */
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    align-self: start;
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    color: var(--primary-text-color);
+    text-align: center;
+}
+
+.gameboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* needed so .spinner-overlay positions over the board */
+    max-width: 100%;
+    padding: 1rem;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-family: cursive;
+    width: auto;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    border-radius: 0.7rem;
+    border-style: none;
+    background-color: var(--primary-btn-color);
+    color: var(--primary-text-color);
+    margin-top: 0.75rem;
+    margin-left: 0;
+    align-self: center;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+/* make grid use auto-fit/minmax for a more fluid responsive layout */
+.board {
+    display: grid;
+    margin: auto;
+    margin-top: 3rem;
+    gap: 1rem;
+    row-gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--card-size), 12rem), 1fr));
+    place-items: center;
+    max-width: calc(var(--card-size) * 4 + 1.5rem * 3); /* space for 4 columns + gaps */
+    width: 100%;
+}
+
+/* optional narrow-screen fallback */
+@media (max-width: 420px) {
+    .board {
+        grid-template-columns: repeat(2, minmax(var(--card-size), 1fr));
+        gap: 0.6rem;
+        row-gap: 0.8rem;
+        max-width: calc(var(--card-size) * 2 + 1.5rem);
+    }
+}
+
+
+
+
+.comments {
+    padding: 0.25rem 1rem;
+    background-color: var(--text-bubble-color);
+    color: var(--primary-text-color);
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    border-radius: 2rem;
+}
+
+/* Small layout tweaks */
+@media (max-width: 720px) {
+    :root {
+        --card-size: clamp(3.2rem, 24vw, 6rem);
+    }
+    .board {
+        gap: 0.9rem;
+        row-gap: 1rem;
+    }
+    .gameboard-container {
+        padding: 1rem;
+    }
+    .button {
+        font-size: 1rem;
+    }
+}
+
+/* Phone layout */
+@media (max-width: 420px) {
+    :root {
+        /* compact card size for narrow phones */
+        --card-size: clamp(3rem, 32vw, 5.5rem);
+    }
+    .board {
+        /* ensure 2 columns where possible on very narrow screens */
+        grid-template-columns: repeat(2, minmax(var(--card-size), 1fr));
+        gap: 0.6rem;
+        row-gap: 0.8rem;
+    }
+    .gameboard-container {
+        padding: 0.6rem;
+        border-radius: 12px;
+    }
+    h1 {
+        font-size: 1.2rem;
+    }
+    .comments {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+    }
+    .button {
+        width: 90%;
+        max-width: 240px;
+    }
+    
+    .item:not(.toggled):hover {
+        transform: none;
+        box-shadow: var(--card-elevation);
+    }
+}
