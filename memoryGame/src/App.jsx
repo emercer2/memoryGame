@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import useLocalStorage from "use-local-storage";
 import GameBoard from "./Components/GameBoard";
-import Toggle from "./Components/toggle";
+import Toggle from "./Components/Toggle";
 
 function App() {
   const preference = window.matchMedia("(prefers-color-scheme: ac)").matches;
