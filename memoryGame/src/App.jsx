@@ -10,6 +10,7 @@ function App() {
   const [resetCounter, setResetCounter] = useState(0);
 
   const toggleText = !isAC ? "Animal Crossing Mode" : "Kirby Mode";
+  const theme = isAC ? "Animal Crossing" : "Kirby";
 
   // when the toggle is pressed, flip mode and trigger a game reset
   const handleToggle = () => {
@@ -19,7 +20,10 @@ function App() {
 
   return (
     <div className="App" data-theme={isAC ? "ac" : "kirby"}>
-      <Toggle isChecked={isAC} handleChange={handleToggle} text={toggleText} />
+      <div className="header">
+        <h1>{theme} Memory Game</h1>
+      </div>
+      <Toggle isChecked={isAC} handleChange={handleToggle} text={`${!isAC ? "Animal Crossing" : "Kirby"} Mode`} />
       <GameBoard key={`game-${isAC}-${resetCounter}`} isAC={isAC} />
     </div>
   );

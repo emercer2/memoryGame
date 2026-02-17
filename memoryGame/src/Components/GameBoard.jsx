@@ -147,14 +147,8 @@ function GameBoard({ isAC }) {
     setMoves((prev) => prev + 1);
   }
 
-  const theme = isAC ? "Animal Crossing" : "Kirby";
-
   return (
     <div className="container">
-      <div className="header">
-        <h1>{theme} Memory Game</h1>
-      </div>
-
       <div className="gameboard-container">
         {loading && (
           <div className="spinner-overlay">
