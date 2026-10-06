@@ -92,7 +92,7 @@ async function Data(isAC, optionsOrForce = false) {
 
     try {
         const headers = API_KEY ? { 'X-API-KEY': API_KEY } : {};
-        const res = await fetch('https://api.nookipedia.com/villagers', {
+        const res = await fetch('/api/nookipedia/villagers', {
             method: 'GET',
             headers
         });

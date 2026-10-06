@@ -10,4 +10,14 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    proxy: {
+      '/api/nookipedia': {
+        target: 'https://api.nookipedia.com',
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/api\/nookipedia/, ''),
+      },
+    },
+  },
 })
